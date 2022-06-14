@@ -1,0 +1,17 @@
+
+ .row{
+    border: 1px solid #000;
+    width:  -100px;;
+    height: fit -100px; 
+ }
+
+ .container{
+    display:table-cell;
+    width: fit -100px;;
+    height: fit -100px; 
+}
+
+ p{
+    font-size: 1vw;
+    font-weight: bold;
+ }
