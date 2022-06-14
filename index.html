@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="src/assets/styles.css">
+<body >
+<!--
+This is a front-end chat app designed to work with Vue and Bootstrap
+version 0.1
+author: Darshan Kumaresan
+
+-->
+<h2>Front end chat app</h2>
+
+<div id="app">
+  <div class="container">
+    <!--Splits the view into two columns-->
+    <div class="row">
+      <div class="col-md">
+        <!--User message displayed at top of screen-->
+        <div class="col-md justify-content-start">
+          <p id="userMessage">{{ message }}</p>
+        </div>
+        <div class="col-md justify-content-end">
+          <p id="newMessage"></p>
+        </div>
+        <!--Stop messages appearing every 5 seconds-->
+        <button onclick="stop()" type="button" class="btn btn-danger">Stop Messages</button>
+      </div>
+      <div class="col-md">
+        <div class="row">
+          <div class="description">
+            <p id="description">
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input">
+            <p id="input-box"><input v-model="message" placeholder="Join the convo!"></p>
+            <button onclick=createNewMessage() id="submit-button" type="button" class="btn btn-primary">Send</button>
+          </div>
+          <!--Adds user text message to the conversation-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  //New vue instance with a message property 
+myObject = new Vue({
+  el: '#app',
+  data: {message: 'Join the convo!'}
+})
+</script>
+<!--Importing bootstrap js-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js
+"></script>
+
+<script>
+  /*
+  Arrays to store the messages and the descriptions
+  */
+  const conversation = ['Hiya how\'s it going!', 'I\'m good thanks', 'What are you doing tonight?',  'Not much', 'Ok fair enough',  ]
+  const users = {'John' : 'Name: John<br></br> Age: 34 <br></br> Works as a chef<br></br> Is great fun.', 'Jane' :'Name: Jane<br></br> Age: 25 <br></br> Works as a chef<br></br> Likes gardening.', 'Bob': 'Name: Bob<br></br> Age: 80<br></br> Retired - likes playing chess in his spare time<br></br> Likes playing the piano', 'Mary':'Name: Mary<br></br> Age: 34<br></br> Works as a chef<br></br> Is great fun.', 'Steve': 'Name: Steve<br></br> Age: 34<br></br> Works as a chef<br></br> Is great fun.'}
+  /*
+  Counters used to iterate through the arrays
+  */
+  let countConversation = 0;
+  let countUsers = 0;
+
+  /*
+  Getter methods for retrieving data*/
+  function getMessage() {
+    return conversation[countConversation];  
+  }
+  function getUser() {
+    return Object.keys(users)[countUsers]
+  }
+  function getDescription() {
+    return users[getUser()]
+  }
+
+  //Interval used to build a new message every 5 seconds
+  const interval = setInterval(function() {
+    var tag = document.createElement("p");
+    tag.style.textAlign = 'left';
+    var text = document.createTextNode(getUser() + " - " + getMessage() );
+    tag.appendChild(text);
+    var element = document.getElementById("newMessage");
+    element.style.textAlign = 'right';
+    element.appendChild(tag);
+    var description = document.getElementById("description");
+    description.innerHTML = getDescription();
+    checkCount()
+  }, 5000);
+  //Function to check if the counters have reached the end of the arrays
+  function checkCount(){
+    countConversation++;
+    countUsers++;
+    if(countConversation > conversation.length - 1){
+      countConversation = 0;
+    }
+    if(countUsers > Object.keys(users).length - 1){
+      countUsers = 0;
+    }
+  }
+
+  //Function to stop the interval
+  function stop() {
+    clearInterval(interval);
+  }
+  /*
+  Function to create a new message and add it to the conversation 
+  */
+  function createNewMessage(){
+    var tag = document.createElement("p");
+    var text = document.createTextNode("You - "  + document.getElementById('userMessage').innerHTML);
+    tag.appendChild(text);
+    var element = document.getElementById("newMessage");
+    element.appendChild(tag);
+  }
+
+  document.getElementByClass('description').style.height= 0.5 * document.getElementByClass('container').style.height;
+  document.getElementByClass('input').style.height= 0.5 * document.getElementByClass('container').style.height;
+  
+
+</script>
+</body>
+</html>
