@@ -1,11 +1,12 @@
 
  .row{
-    
+    display:flex;
     min-width:  100%;
     min-height: 100%;
  }
 
  .col{
+   display: flex;
    min-width: 50%;
    min-height: 100%;
  }
@@ -30,6 +31,7 @@
  }
 
  .container{
+   display: flex;
    min-width: 100%;
    min-height: 100%;
  }

@@ -3,10 +3,10 @@
   */
   const conversation = ['Hiya how\'s it going!', 'I\'m good thanks', 'What are you doing tonight?',  'Not much', 'Ok fair enough',  ]
   const people = ['John', 'Jane', 'Bob', 'Mary', 'Steve'];
-  const ages = [34, 25, 80, 36, 19];
+  const ages = [34, 80, 25, 36, 19];
   const jobs = ['Chef', 'Retired army veteran', 'Waiter', 'Builder', 'Cartographer'];
   const hobbies = ['Hiking', 'Reading', 'Playing Chess', 'Playing the Piano', 'Gardening'];
-  const hobbiesDescriptions = ['I like to hike in the woods', 'I like to read', 'I like to play chess', 'I like to play the piano', 'I like to garden'];
+  const hobbiesDescriptions = ['I love to go hiking', 'I love to read', 'I love to play chess', 'I love to play the piano', 'I love to garden'];
   /*
   Counters used to iterate through the arrays
   */
@@ -48,6 +48,7 @@
     description.innerHTML = generateDescription();
     checkCount()
   }, 5000);
+
   //Function to check if the counters have reached the end of the arrays
   function checkCount(){
     countConversation++;
@@ -76,12 +77,12 @@
   }
 
     //Function to clear the conversation
-    function clearMessages(){
-        var element = document.getElementById("newMessage");
-        element.innerHTML = "";
-        this.countConversation = 0;
-        this.countUsers = 0;
-        var description = document.getElementById("description");
-        description.innerHTML = "";
-    }
+   function clearMessages(){
+    var element = document.getElementById("newMessage");
+    element.innerHTML = "";
+    countConversation = 0;
+    countUsers = 0;
+    var description = document.getElementById("description");
+    description.innerHTML = "";
+ }
   
