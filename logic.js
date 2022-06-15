@@ -12,7 +12,7 @@
   */
   let countConversation = 0;
   let countUsers = 0;
-  let conversationLoop = 0
+  let conversationLoop = 0;
 
   /*
   Getter methods for retrieving data*/
@@ -41,15 +41,17 @@
     interval = setInterval(function() {
       var tag = document.createElement("p");
       tag.style.textAlign = 'left';
+      tag.style.color = 'black';
       var text = document.createTextNode(getUser() + " - " + getMessage() );
       tag.appendChild(text);
       var element = document.getElementById("newMessage");
+      element.style.color = 'green';
       element.style.textAlign = 'right';
       element.appendChild(tag);
       var description = document.getElementById("description");
       description.innerHTML = generateDescription();
       checkCount()
-    }, 1000);
+    }, 5000);
   }
   
 
@@ -82,11 +84,21 @@
   */
   function createNewMessage(){
     var tag = document.createElement("p");
+    document.getElementById('userMessage').innerHTML = document.querySelector('input').value.replace(':)', '&#x1F600');
+    document.getElementById('userMessage').innerHTML = document.querySelector('input').value.replace(';P', '&#x1F61C');
     var text = document.createTextNode("You - "  + document.getElementById('userMessage').innerHTML);
     tag.appendChild(text);
     var element = document.getElementById("newMessage");
     element.appendChild(tag);
   }
+
+  function makeEmojiText(){
+    let text = document.querySelector('input');
+    const item = document.createElement('p');
+    item.innerHTML = text.innerHTML.replace(':)', '&#x1F600');
+    return item.innerHTML;
+  }
+
 
     //Function to clear the conversation
    function clearMessages(){
