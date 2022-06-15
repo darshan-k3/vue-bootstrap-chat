@@ -12,6 +12,7 @@
   */
   let countConversation = 0;
   let countUsers = 0;
+  let conversationLoop = 0
 
   /*
   Getter methods for retrieving data*/
@@ -55,9 +56,17 @@
     countUsers++;
     if(countConversation > conversation.length - 1){
       countConversation = 0;
+      conversationCount();
     }
     if(countUsers > people.length - 1){
       countUsers = 0;
+    }
+  }
+
+  function conversationCount(){
+    conversationLoop++;
+    if(conversationLoop == 3){
+        clearMessages();
     }
   }
 
