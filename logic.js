@@ -61,5 +61,13 @@
     element.appendChild(tag);
   }
 
-
+    //Function to clear the conversation
+    function clearMessages(){
+        var element = document.getElementById("newMessage");
+        element.innerHTML = "";
+        this.countConversation = 0;
+        this.countUsers = 0;
+        var description = document.getElementById("description");
+        description.innerHTML = "";
+    }
   

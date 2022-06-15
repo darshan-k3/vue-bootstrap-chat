@@ -41,9 +41,9 @@ author: Darshan Kumaresan
             <!--Adds user text message to the conversation-->
             <p id="input-box"><input v-model="message" placeholder="Join the convo!"></p>
             <button onclick=createNewMessage() id="submit-button" type="button" class="btn btn-primary">Send</button>
-          
-          <!--Stop messages appearing every 5 seconds-->
-          <button onclick="stop()" type="button" class="btn btn-danger">Stop Messages</button>
+            <button onclick=clearMessages() id="submit-button" type="button" class="btn btn-secondary">Clear</button>
+            <!--Stop messages appearing every 5 seconds-->
+            <button onclick="stop()" type="button" class="btn btn-danger">Stop Messages</button>
           </div>
           
         </div>
