@@ -18,15 +18,17 @@ author: Darshan Kumaresan
     <!--Splits the view into two columns-->
     <div class="row">
       <div class="col-md">
-        <!--User message displayed at top of screen-->
-        <div class="col-md justify-content-start">
-          <p id="userMessage">{{ message }}</p>
-        </div>
-        <div class="col-md justify-content-end">
-          <p id="newMessage"></p>
-        </div>
-        <!--Stop messages appearing every 5 seconds-->
-        <button onclick="stop()" type="button" class="btn btn-danger">Stop Messages</button>
+        <div class="conversation-main">
+          <!--User message displayed at top of screen-->
+          <div class="col-md ">
+            <p id="userMessage">{{ message }}</p>
+          </div>
+          <div class="col-md ">
+            <p id="newMessage"></p>
+          </div>
+          <!--Stop messages appearing every 5 seconds-->
+          <button onclick="stop()" type="button" class="btn btn-danger">Stop Messages</button>
+          </div>
       </div>
       <div class="col-md">
         <div class="row">

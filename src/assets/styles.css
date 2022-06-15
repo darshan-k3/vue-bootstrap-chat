@@ -1,15 +1,39 @@
 
  .row{
-    border: 1px solid #000;
-    width:  -100px;;
-    height: fit -100px; 
+    
+    min-width:  100%;
+    min-height: 100%;
+ }
+
+ .col{
+   min-width: 50%;
+   min-height: 100%;
+ }
+ .conversation-main{
+   border: 1px solid #000;
+   min-width: 50%;
+   min-height: 100%;
+ }
+ .description{
+   border: 1px solid #000;
+   min-width: 50%;
+   min-height: 50%;
+   float:right;
+   text-align: top;
+ }
+
+ .input{
+   position: absolute;
+   bottom: 0vh;
+   left:170vh;
+
  }
 
  .container{
-    display:table-cell;
-    width: fit -100px;;
-    height: fit -100px; 
-}
+   min-width: 100%;
+   min-height: 100%;
+ }
+
 
  p{
     font-size: 1vw;
