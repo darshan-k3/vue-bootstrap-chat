@@ -35,20 +35,23 @@
     let messageString = getUser() + "<br></br>" + getAge() + " years old<br></br>" + "Is currently a " + getJob() + "<br></br>" + getHobbies();
     return messageString;
   }
-
+  var interval;
   //Interval used to build a new message every 5 seconds
-  const interval = setInterval(function() {
-    var tag = document.createElement("p");
-    tag.style.textAlign = 'left';
-    var text = document.createTextNode(getUser() + " - " + getMessage() );
-    tag.appendChild(text);
-    var element = document.getElementById("newMessage");
-    element.style.textAlign = 'right';
-    element.appendChild(tag);
-    var description = document.getElementById("description");
-    description.innerHTML = generateDescription();
-    checkCount()
-  }, 5000);
+  function start(){
+    interval = setInterval(function() {
+      var tag = document.createElement("p");
+      tag.style.textAlign = 'left';
+      var text = document.createTextNode(getUser() + " - " + getMessage() );
+      tag.appendChild(text);
+      var element = document.getElementById("newMessage");
+      element.style.textAlign = 'right';
+      element.appendChild(tag);
+      var description = document.getElementById("description");
+      description.innerHTML = generateDescription();
+      checkCount()
+    }, 1000);
+  }
+  
 
   //Function to check if the counters have reached the end of the arrays
   function checkCount(){
@@ -62,7 +65,7 @@
       countUsers = 0;
     }
   }
-
+  //Clears the chat after conversation repeats thrice.
   function conversationCount(){
     conversationLoop++;
     if(conversationLoop == 3){
@@ -94,4 +97,6 @@
     var description = document.getElementById("description");
     description.innerHTML = "";
  }
+
+ start();
   

@@ -24,12 +24,27 @@
  }
 
  .input{
+   display:inline-block;
    position: absolute;
-   bottom: 0vh;
-   left:160vh;
-
+   bottom: 20vh;
+   left:70vw;
  }
-
+.stop{
+  position:absolute;
+  display:inline;
+  flex-wrap: wrap;
+  flex-direction:column;
+  bottom:13vh;
+  left:70vw;
+}
+.start{
+  position:absolute;
+  display:inline;
+  flex-wrap: wrap;
+  flex-direction:column;
+  bottom:6vh;
+  left:70vw;
+}
  .container{
    display: flex;
    min-width: 100%;
